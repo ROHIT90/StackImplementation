@@ -9,17 +9,50 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var stack = Stack()
+    
+    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var outputTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        hideKeyboardWhenTappedAround()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func pushButtonTapped(_ sender: Any) {
+        stack.push(elemet: inputTextField.text!)
+        outputTextView.text = String(describing: stack)
+        emptyTextFieldAndRemoveKeyBoard()
     }
 
-
+    @IBAction func peekButtonTapped(_ sender: Any) {
+        outputTextView.text = String(describing: stack.peek()!)
+        emptyTextFieldAndRemoveKeyBoard()
+    }
+    
+    @IBAction func popButtonTapped(_ sender: Any) {
+        outputTextView.text = String(describing: stack.pop()!)
+        emptyTextFieldAndRemoveKeyBoard()
+    }
+    
+    func emptyTextFieldAndRemoveKeyBoard() {
+        inputTextField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

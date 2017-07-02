@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StackImplementation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,100 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8N5-qD-Gci">
+                                <rect key="frame" x="0.0" y="464" width="375" height="203"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="DD4-e0-VyS"/>
+                                    <constraint firstAttribute="width" constant="375" id="rvk-CD-Y2e"/>
+                                </constraints>
+                                <color key="textColor" red="0.85882352939999995" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter element here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WuS-46-Jpe">
+                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GDR-ei-Yat"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28b-ee-OGW">
+                                <rect key="frame" x="16" y="70" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.074355889729999999" green="1" blue="0.067592587159999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="386-yu-vPu"/>
+                                    <constraint firstAttribute="height" constant="50" id="qHO-mB-hNZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Push">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c65-uI-5qF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="891-ef-TG6">
+                                <rect key="frame" x="16" y="128" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UCg-iH-8qq"/>
+                                    <constraint firstAttribute="width" constant="343" id="sSR-Af-RYt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Peek">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="peekButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqf-ZO-UX6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egz-j9-Svp">
+                                <rect key="frame" x="16" y="186" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aNZ-gr-JZM"/>
+                                    <constraint firstAttribute="width" constant="343" id="pzS-UT-xNb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Pop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="popButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddw-3H-FaE"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WuS-46-Jpe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="3VP-zd-zs7"/>
+                            <constraint firstAttribute="trailing" secondItem="28b-ee-OGW" secondAttribute="trailing" constant="16" id="6A8-ne-i7Q"/>
+                            <constraint firstItem="egz-j9-Svp" firstAttribute="top" secondItem="891-ef-TG6" secondAttribute="bottom" constant="8" id="BnX-VB-0GL"/>
+                            <constraint firstItem="8N5-qD-Gci" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DGk-FW-qHQ"/>
+                            <constraint firstItem="WuS-46-Jpe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ng8-o7-h15"/>
+                            <constraint firstItem="28b-ee-OGW" firstAttribute="top" secondItem="WuS-46-Jpe" secondAttribute="bottom" constant="20" id="PRv-Sz-TOy"/>
+                            <constraint firstItem="891-ef-TG6" firstAttribute="top" secondItem="28b-ee-OGW" secondAttribute="bottom" constant="8" id="Pby-V6-p09"/>
+                            <constraint firstAttribute="trailing" secondItem="891-ef-TG6" secondAttribute="trailing" constant="16" id="SVn-rF-cXB"/>
+                            <constraint firstItem="28b-ee-OGW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="aad-25-zp5"/>
+                            <constraint firstAttribute="trailing" secondItem="egz-j9-Svp" secondAttribute="trailing" constant="16" id="bvN-aJ-Vgw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8N5-qD-Gci" secondAttribute="bottom" id="imn-5q-Oez"/>
+                            <constraint firstAttribute="trailing" secondItem="WuS-46-Jpe" secondAttribute="trailing" constant="16" id="lQz-ug-6SN"/>
+                            <constraint firstItem="891-ef-TG6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="tdU-XG-zTY"/>
+                            <constraint firstItem="egz-j9-Svp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="u3O-oB-Ee5"/>
+                            <constraint firstAttribute="trailing" secondItem="8N5-qD-Gci" secondAttribute="trailing" id="zuJ-nE-UE6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputTextField" destination="WuS-46-Jpe" id="UCw-em-oaA"/>
+                        <outlet property="outputTextView" destination="8N5-qD-Gci" id="ldy-gW-zwV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
